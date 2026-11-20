@@ -33,7 +33,6 @@ import kotlin.concurrent.thread
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        // Вшитый плейлист по умолчанию
         const val DEFAULT_PLAYLIST_URL = "http://cdntv.online/high/c6t3h5p9vr/playlist.m3u8"
     }
 
@@ -46,25 +45,21 @@ class MainActivity : AppCompatActivity() {
 
     private var currentScreen = Screen.CATEGORIES
 
-    // Экраны
     private lateinit var screenCategories: LinearLayout
     private lateinit var screenCategoryChannels: LinearLayout
     private lateinit var screenPlayer: FrameLayout
     private lateinit var screenSettings: LinearLayout
 
-    // Экран 1: Категории
     private lateinit var btnSearchMain: Button
     private lateinit var btnRefreshMain: Button
     private lateinit var btnSettingsMain: Button
     private lateinit var rvCategories: RecyclerView
 
-    // Экран 2: Каналы категории
     private lateinit var btnBackFromCategory: Button
     private lateinit var tvCategoryHeaderTitle: TextView
     private lateinit var btnSearchCategory: Button
     private lateinit var rvCategoryChannels: RecyclerView
 
-    // Экран 3: Плеер + Вкладки справа + OSD
     private lateinit var playerView: PlayerView
     private lateinit var tvClockOverlay: TextView
     private lateinit var playerRightPanel: LinearLayout
@@ -72,7 +67,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tabArchiveProgram: Button
     private lateinit var rvPlayerEpg: RecyclerView
 
-    // OSD панель снизу
     private lateinit var osdBottomBar: LinearLayout
     private lateinit var tvOsdBadge: TextView
     private lateinit var tvOsdChannelName: TextView
@@ -86,7 +80,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnOsdAspect: Button
     private lateinit var btnOsdBackToList: Button
 
-    // Экран 4: Настройки
     private lateinit var btnCloseSettings: Button
     private lateinit var btnSetPlaylists: Button
     private lateinit var btnSetEpg: Button
@@ -202,11 +195,9 @@ class MainActivity : AppCompatActivity() {
 
         btnBackFromCategory.setOnClickListener { showCategoriesScreen() }
 
-        // Вкладки в плеере
         tabLiveProgram.setOnClickListener { selectPlayerTab(archive = false) }
         tabArchiveProgram.setOnClickListener { selectPlayerTab(archive = true) }
 
-        // Кнопки нижней OSD панели
         btnOsdPlayPause.setOnClickListener {
             if (player.isPlaying) {
                 player.pause()
@@ -521,7 +512,7 @@ ${archiveProg.durationMinutes()} мин."
                     showCategoriesScreen()
                     return true
                 }
-                Screen.CATEGORIES -> { /* Выход */ }
+                Screen.CATEGORIES -> { }
             }
         } else if (currentScreen == Screen.PLAYER && playerRightPanel.visibility != View.VISIBLE) {
             if (keyCode == KeyEvent.KEYCODE_DPAD_UP || keyCode == KeyEvent.KEYCODE_CHANNEL_UP) {
@@ -560,7 +551,6 @@ ${archiveProg.durationMinutes()} мин."
         player.release()
     }
 
-    // АДАПТЕР КАТЕГОРИЙ В 2 КОЛОНКИ
     class CategoryAdapter(
         private val items: List<Pair<String, List<Channel>>>,
         private val onClick: (String, List<Channel>) -> Unit
@@ -593,7 +583,6 @@ ${archiveProg.durationMinutes()} мин."
         override fun getItemCount(): Int = items.size
     }
 
-    // АДАПТЕР КАНАЛОВ В 2 КОЛОНКИ
     inner class ChannelAdapter(
         private val channels: List<Channel>,
         private val liveLookup: (Channel) -> EpgProgram?,
@@ -633,7 +622,6 @@ ${archiveProg.durationMinutes()} мин."
         override fun getItemCount(): Int = channels.size
     }
 
-    // АДАПТЕР ТЕЛЕПРОГРАММЫ И АРХИВА
     inner class EpgAdapter(
         private val programs: List<EpgProgram>,
         private val isArchive: Boolean,

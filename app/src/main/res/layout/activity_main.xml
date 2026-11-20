@@ -6,7 +6,7 @@
     android:background="#1D336B"
     android:keepScreenOn="true">
 
-    <!-- ЭКРАН 1: ГЛАВНЫЙ ЭКРАН С КАТЕГОРИЯМИ В 2 КОЛОНКИ (КАК НА ФОТО) -->
+    <!-- ЭКРАН 1: ГЛАВНЫЙ ЭКРАН С КАТЕГОРИЯМИ В 2 КОЛОНКИ -->
     <LinearLayout
         android:id="@+id/screenCategories"
         android:layout_width="match_parent"
@@ -14,7 +14,6 @@
         android:orientation="vertical"
         android:visibility="visible">
 
-        <!-- ВЕРХНИЙ СИНИЙ БАР -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -66,7 +65,6 @@
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <!-- СЕТКА КАТЕГОРИЙ В 2 КОЛОНКИ -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCategories"
             android:layout_width="match_parent"
@@ -74,7 +72,7 @@
             android:padding="12dp" />
     </LinearLayout>
 
-    <!-- ЭКРАН 2: КАНАЛЫ ВНУТРИ КАТЕГОРИИ В 2 КОЛОНКИ + ТЕКУЩАЯ ПЕРЕДАЧА (КАК НА ФОТО) -->
+    <!-- ЭКРАН 2: КАНАЛЫ ВНУТРИ КАТЕГОРИИ В 2 КОЛОНКИ -->
     <LinearLayout
         android:id="@+id/screenCategoryChannels"
         android:layout_width="match_parent"
@@ -129,7 +127,7 @@
             android:padding="12dp" />
     </LinearLayout>
 
-    <!-- ЭКРАН 3: ТРАНСКЛЯЦИЯ СЛЕВА + ДВЕ ВКЛАДКИ СПРАВА (ПРЯМОЙ ЭФИР / АРХИВ) + OSD ПАНЕЛЬ -->
+    <!-- ЭКРАН 3: ТРАНСКЛЯЦИЯ СЛЕВА + ДВЕ ВКЛАДКИ СПРАВА -->
     <FrameLayout
         android:id="@+id/screenPlayer"
         android:layout_width="match_parent"
@@ -142,7 +140,6 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <!-- ЛЕВАЯ ЧАСТЬ: ОКНО ТРАНСЛЯЦИИ С ЧАСАМИ В УГЛУ -->
             <FrameLayout
                 android:id="@+id/playerLeftArea"
                 android:layout_width="0dp"
@@ -172,7 +169,6 @@
                     android:textStyle="bold" />
             </FrameLayout>
 
-            <!-- ПРАВАЯ ЧАСТЬ: ВКЛАДКИ «ПРЯМОЙ ЭФИР» И «АРХИВ» + СПИСОК EPG -->
             <LinearLayout
                 android:id="@+id/playerRightPanel"
                 android:layout_width="0dp"
@@ -227,7 +223,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- НИЖНЯЯ OSD ПАНЕЛЬ КАК НА ФОТО (ПРОГРЕСС ПЕРЕДАЧИ И ИКОНКИ УПРАВЛЕНИЯ) -->
+        <!-- НИЖНЯЯ OSD ПАНЕЛЬ -->
         <LinearLayout
             android:id="@+id/osdBottomBar"
             android:layout_width="match_parent"
@@ -319,7 +315,6 @@
                 android:progressBackgroundTint="#3B5599"
                 android:progressTint="#C2D59B" />
 
-            <!-- РЯД ИКОНОК СНИЗУ КАК В TELEVIZO -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -386,7 +381,7 @@
         </LinearLayout>
     </FrameLayout>
 
-    <!-- ЭКРАН 4: НАСТРОЙКИ КАК В TELEVIZO (ПЛЕЙЛИСТЫ, ПРОГРАММА ПЕРЕДАЧ, ОБНОВИТЬ) -->
+    <!-- ЭКРАН 4: НАСТРОЙКИ -->
     <LinearLayout
         android:id="@+id/screenSettings"
         android:layout_width="match_parent"
@@ -486,7 +481,7 @@
             android:layout_height="wrap_content"
             android:gravity="end"
             android:padding="20dp"
-            android:text="LumaTV, версия 3.0 (Встроен плейлист cdntv.online)"
+            android:text="LumaTV, версия 4.0 (Встроен плейлист cdntv.online)"
             android:textColor="#A8BCE8"
             android:textSize="14sp" />
     </LinearLayout>

@@ -157,10 +157,13 @@ object Parsers {
         val duration = (utcEnd - utcStart).coerceAtLeast(60L)
 
         if (channel.catchupSource.isNotEmpty()) {
+            val sTag = "\${start}"
+            val eTag = "\${end}"
+            val dTag = "\${duration}"
             var src = channel.catchupSource
-                .replace("\${start}", utcStart.toString())
-                .replace("\${end}", utcEnd.toString())
-                .replace("\${duration}", duration.toString())
+                .replace(sTag, utcStart.toString())
+                .replace(eTag, utcEnd.toString())
+                .replace(dTag, duration.toString())
                 .replace("{utc}", utcStart.toString())
                 .replace("{lutc}", (System.currentTimeMillis() / 1000L).toString())
             if (src.startsWith("?") || src.startsWith("&")) {

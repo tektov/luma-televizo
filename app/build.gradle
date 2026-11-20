@@ -11,8 +11,8 @@ android {
         applicationId "com.lumatv.player"
         minSdk 21
         targetSdk 34
-        versionCode 3
-        versionName "3.0-TelevizoStyle"
+        versionCode 4
+        versionName "4.0-TelevizoStyle"
     }
 
     buildTypes {
